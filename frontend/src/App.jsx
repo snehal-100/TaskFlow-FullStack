@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = "http://localhost:8080/api/tasks";
-const AUTH_URL = "http://localhost:8080/api/auth";
+const API_URL = "https://taskflow-fullstack-1-657e.onrender.com/api/tasks";
+const AUTH_URL = "https://taskflow-fullstack-1-657e.onrender.com/api/auth";
 
 const emptyForm = {
   title: "",
