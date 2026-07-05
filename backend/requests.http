@@ -1,0 +1,15 @@
+### Get all tasks
+GET http://localhost:8080/api/tasks
+
+
+### Create a new task
+POST http://localhost:8080/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Complete Java Project",
+  "description": "Build the TaskFlow task management system",
+  "status": "PENDING",
+  "priority": "HIGH",
+  "dueDate": "2026-07-10"
+}

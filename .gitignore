@@ -1,0 +1,20 @@
+# Java
+backend/target/
+*.class
+
+# IntelliJ
+.idea/
+*.iml
+
+# React
+frontend/node_modules/
+frontend/dist/
+
+# Environment files
+.env
+.env.*
+application-local.properties
+
+# OS
+.DS_Store
+Thumbs.db
