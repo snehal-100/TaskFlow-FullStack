@@ -1,15 +1,60 @@
-### Get all tasks
-GET http://localhost:8080/api/tasks
-
-
-### Create a new task
-POST http://localhost:8080/api/tasks
+### 1. Register a new user
+POST http://localhost:8080/api/auth/register
 Content-Type: application/json
 
 {
-  "title": "Complete Java Project",
-  "description": "Build the TaskFlow task management system",
-  "status": "PENDING",
-  "priority": "HIGH",
-  "dueDate": "2026-07-10"
+  "name": "Snehal",
+  "email": "snehal@example.com",
+  "password": "Password123"
 }
+
+### 2. Login to obtain JWT Token
+# @name login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "snehal@example.com",
+  "password": "Password123"
+}
+
+### Store token from login response above:
+@authToken = {{login.response.body.token}}
+
+### 3. Get all tasks for current user
+GET http://localhost:8080/api/tasks
+Authorization: Bearer {{authToken}}
+
+### 4. Create a new task
+POST http://localhost:8080/api/tasks
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "title": "Complete Java Full Stack Project",
+  "description": "Build the TaskFlow task management system with Spring Boot & React",
+  "status": "IN_PROGRESS",
+  "priority": "HIGH",
+  "dueDate": "2026-10-15"
+}
+
+### 5. Get task by ID
+GET http://localhost:8080/api/tasks/1
+Authorization: Bearer {{authToken}}
+
+### 6. Update task by ID
+PUT http://localhost:8080/api/tasks/1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "title": "Complete Java Full Stack Project (Updated)",
+  "description": "Testing and deployment complete",
+  "status": "COMPLETED",
+  "priority": "HIGH",
+  "dueDate": "2026-10-15"
+}
+
+### 7. Delete task by ID
+DELETE http://localhost:8080/api/tasks/1
+Authorization: Bearer {{authToken}}
